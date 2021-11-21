@@ -3,7 +3,7 @@ pragma solidity >=0.4.22 <0.6.0;
 import "./MetaCoin.sol";
 
 contract Tribu {
-    
+    //déclaration des variables
     uint soldeCompte1;
     uint soldeCompte2;
     uint montant;
@@ -12,6 +12,7 @@ contract Tribu {
 
     constructor() public 
     {
+        //affectation des variables
         soldeCompte1 = 1000;
         soldeCompte2 = 0;
         compte1 = 0x766549D482E9620c0C21a6E004a4BD29CeDC133f;
@@ -20,11 +21,14 @@ contract Tribu {
 
     function envoiTest() public 
     {
+        //essai d'envoi via l'appel à la méthode SendCoin de la classe MetaCoin
         MetaCoin meta = new MetaCoin();
         meta.sendCoin(compte2, 10);
     }
-      function sendTribute(address payable _to) public payable {
-    _to.transfer(msg.value);
+    function sendTribute(address payable _to) public payable 
+    {
+        //essaie d'envoi via la méthode transfer
+        _to.transfer(msg.value);
     }
 }
 
